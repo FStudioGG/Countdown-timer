@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            overflow: hidden;
+        }
+
+        #countdown {
+            font-size: 48px;
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+
+    <script>
+        const targetDate = new Date("May 3, 2025 16:00:00 GMT-0300").getTime();
+
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").textContent = 
+                (days < 10 ? "0" + days : days) + ":" +
+                (hours < 10 ? "0" + hours : hours) + ":" +
+                (minutes < 10 ? "0" + minutes : minutes) + ":" +
+                (seconds < 10 ? "0" + seconds : seconds);
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").textContent = "O Grande dia chegou";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
