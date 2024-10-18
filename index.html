@@ -3,49 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagem Regressiva</title>
+    <title>Countdown</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
-            overflow: hidden;
+            overflow: hidden; /* Removes the scrollbar */
         }
 
         #countdown {
             font-size: 48px;
-            letter-spacing: 10px;
+            letter-spacing: 10px; /* Horizontal spacing between characters */
             margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <!-- Countdown will be displayed here -->
     <div id="countdown"></div>
 
     <script>
+        // Target date: May 3, 2025, 16:00 (Brasilia time)
         const targetDate = new Date("May 3, 2025 16:00:00 GMT-0300").getTime();
 
+        // Function to update the clock every second
         const countdownTimer = setInterval(function() {
+            // Current date and time
             const now = new Date().getTime();
 
+            // Difference between the target date and the current date
             const distance = targetDate - now;
 
+            // Calculating the remaining time in days, hours, minutes, and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+            // Display the countdown in the format DD:HH:MM:SS
             document.getElementById("countdown").textContent = 
                 (days < 10 ? "0" + days : days) + ":" +
                 (hours < 10 ? "0" + hours : hours) + ":" +
                 (minutes < 10 ? "0" + minutes : minutes) + ":" +
                 (seconds < 10 ? "0" + seconds : seconds);
 
+            // When the countdown is over
             if (distance < 0) {
                 clearInterval(countdownTimer);
-                document.getElementById("countdown").textContent = "O Grande dia chegou";
+                document.getElementById("countdown").textContent = "TIME'S UP"; // Displays message after end
             }
-        }, 1000);
+        }, 1000); // Updates every 1 second (1000 ms)
     </script>
 </body>
 </html>
