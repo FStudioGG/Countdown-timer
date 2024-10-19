@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Countdown</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            font-family: "IBM Plex Serif", serif; /* Defines font */
+            font-weight: 400;
+            font-style: normal;
+            /* Centers the content using Flexbox */
+            display: flex; /* Defines the use of Flexbox */
+            justify-content: center; /* Horizontally centers */
+            align-items: center; /* Vertically centers */
+            height: 100vh; /* Sets body height to equal the viewport height */
+            margin: 0; /* Removes any default margin */
             overflow: hidden; /* Removes the scrollbar */
         }
 
         #countdown {
             font-size: 5vw; /* Responsive font size using window width */
             letter-spacing: 1vw; /* Horizontal spacing using window width */
-            margin-bottom: 20px;
+            text-align: center; /* Ensures the countdown text is centered */
         }
 
         /* Styles for very small screens (small smartphones) */
