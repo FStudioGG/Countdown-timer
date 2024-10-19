@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
+    <title>Simple Countdown</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,9 +13,25 @@
         }
 
         #countdown {
-            font-size: 48px;
-            letter-spacing: 10px; /* Horizontal spacing between characters */
+            font-size: 5vw; /* Responsive font size using window width */
+            letter-spacing: 1vw; /* Horizontal spacing using window width */
             margin-bottom: 20px;
+        }
+
+        /* Styles for very small screens (small smartphones) */
+        @media (max-width: 400px) {
+            #countdown {
+                font-size: 8vw; /* Increases font size on very small screens */
+                letter-spacing: 2vw; /* Adjusts spacing on smaller screens */
+            }
+        }
+
+        /* Styles for very large screens (larger desktops) */
+        @media (min-width: 1200px) {
+            #countdown {
+                font-size: 3vw; /* Decreases font size on large screens */
+                letter-spacing: 0.5vw; /* Adjusts spacing on larger screens */
+            }
         }
     </style>
 </head>
